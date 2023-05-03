@@ -7,7 +7,7 @@ RUN mkdir /var/lib/mysql-data
 COPY . /etc/mysql/my.cnf
 
 # Set the data directory to the data volume
-RUN sed -i 's|/var/lib/mysql|/var/lib/mysql-data|g' /etc/mysql/my.cnf
+RUN sed -i -h 's|/var/lib/mysql|/var/lib/mysql-data|g' /etc/mysql/my.cnf
 
 # Set the root password
 ENV MYSQL_ROOT_PASSWORD kiran
