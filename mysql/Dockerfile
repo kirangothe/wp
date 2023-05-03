@@ -19,3 +19,5 @@ ENV MYSQL_DATABASE wp_mydb
 
 # Mount the data volume
 VOLUME /var/lib/mysql-data
+
+COPY my-wp_mydb.sql /docker-entrypoint-initdb.d/
