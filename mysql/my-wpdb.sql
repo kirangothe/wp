@@ -388,4 +388,8 @@ CREATE TABLE `wp_users` (
 
 insert  into `wp_users`(`ID`,`user_login`,`user_pass`,`user_nicename`,`user_email`,`user_url`,`user_registered`,`user_activation_key`,`user_status`,`display_name`) values (1,'admin','$P$BW1r2MFISrNeB6Mq5637s67B4/H1ab/','admin','keyrun.gothe@gmail.com','http://localhost:90/wp','2023-05-03 15:21:00','',0,'admin');
 
+<<<<<<< HEAD
  
+=======
+ 
+>>>>>>> 7df8e7c4df3953a46e1b5acf1709c5b23b56f623
