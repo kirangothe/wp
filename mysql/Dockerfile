@@ -1,13 +1,13 @@
 FROM mysql
 
 # Create a directory for the data volume
-RUN mkdir /var/lib/mysql-data
+# RUN mkdir /var/lib/mysql-data
 
 # Copy the MySQL configuration file from the base image into the container
-COPY . /etc/mysql/my.cnf
+# COPY . /etc/mysql/my.cnf
 
 # Set the data directory to the data volume
-RUN sed -i -r 's|/var/lib/mysql|/var/lib/mysql-data|g' /etc/mysql/my.cnf
+# RUN sed -i -r 's|/var/lib/mysql|/var/lib/mysql-data|g' /etc/mysql/my.cnf
 
 # Set the root password
 ENV MYSQL_ROOT_PASSWORD kiran

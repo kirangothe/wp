@@ -14,7 +14,7 @@
  * * ABSPATH
  *
  * @link https://wordpress.org/documentation/article/editing-wp-config-php/
- * Kiran Gothe
+ *
  * @package WordPress
  */
 
