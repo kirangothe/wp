@@ -18,7 +18,7 @@ ENV MYSQL_DATABASE wp_mydb
 # ENV MYSQL_PASSWORD kiran
 
 
-COPY my-wpdb.sql /docker-entrypoint-initdb.d/
+COPY my-mydb.sql /docker-entrypoint-initdb.d/
 
 # Mount the data volume
 VOLUME /var/lib/mysql-data
