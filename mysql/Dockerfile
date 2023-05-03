@@ -1,7 +1,7 @@
 FROM mysql
 
 # Create a directory for the data volume
-# RUN mkdir /var/lib/mysql-data
+RUN mkdir /var/lib/mysql-data
 
 # Copy the MySQL configuration file from the base image into the container
 # COPY . /etc/mysql/my.cnf
