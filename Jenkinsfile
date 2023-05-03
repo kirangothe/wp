@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Github Clone') {
+    stage('Github Checkout') {
       steps {
         git 'https://github.com/kirangothe/wp.git'
       }
