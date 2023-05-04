@@ -38,8 +38,8 @@ services:
     restart: always
     environment:
       PMA_HOST: my-mysql
-      MYSQL_USER: root
-      MYSQL_PASSWORD: kiran
-      MYSQL_ROOT_PASSWORD: kiran 
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: kiran
+      # MYSQL_ROOT_PASSWORD: kiran 
     ports:
       - 8081:80
