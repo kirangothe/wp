@@ -3,26 +3,23 @@ version: '3'
 services:
   my-mysql:
     container_name: my-mysql
-    image: my-mysql:latest
-    build:
-      context: ./mysql
-      dockerfile: Dockerfile
+    image: my-mysql
     restart: always
     volumes:
       - /var/mysql/data:/var/lib/mysql
+     # - /var/mysql/db-initdb.sql:/docker-entrypoint-initdb.d/db-initdb.sql:ro
     environment:
       MYSQL_ROOT_PASSWORD: kiran
       MYSQL_DATABASE: wp_mydb
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: kiran
 
   my-wordpress:
     depends_on:
       - my-mysql
       - phpmyadmin
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: my-wordpress
     container_name: my-wordpress
-    image: my-wordpress:latest
     restart: always
     ports:
       - "80:80"
@@ -42,5 +39,8 @@ services:
     restart: always
     environment:
       PMA_HOST: my-mysql
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: kiran
+      # MYSQL_ROOT_PASSWORD: kiran 
     ports:
       - 8081:80
