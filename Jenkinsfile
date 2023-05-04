@@ -8,6 +8,7 @@ pipeline {
     }
     stage('Remove existing images') {
       steps {
+        sh 'docker rmi $(docker images -q)'
         sh 'docker image prune -af'
       }
     }
