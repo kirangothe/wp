@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  my-mysql:
+    container_name: my-mysql
+    image: my-mysql:latest
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - /var/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: kiran
+      MYSQL_DATABASE: wp_mydb
+
+  my-wordpress:
+    depends_on:
+      - my-mysql
+      - phpmyadmin
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-wordpress
+    image: my-wordpress:latest
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /var/mysite:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: my-mysql:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: kiran
+      WORDPRESS_DB_NAME: wp_mydb
+
+  phpmyadmin:
+    depends_on:
+      - my-mysql
+    image: phpmyadmin/phpmyadmin:5.1.1
+    container_name: my-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: my-mysql
+    ports:
+      - 8081:80
