@@ -37,8 +37,6 @@ services:
       PMA_HOST: my-mysql
       MYSQL_USER: root
       MYSQL_PASSWORD: kiran
-      MYSQL_ROOT_PASSWORD: kiran
-    networks:
-      - wp-network
+      MYSQL_ROOT_PASSWORD: kiran 
     ports:
       - 8080:80
