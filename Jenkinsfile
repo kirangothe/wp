@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Stop and remove containers') {
       steps {
-        sh 'cd /var/lib/jenkins/workspace/wpfree && docker-compose down'
+        sh 'cd /var/lib/jenkins/workspace/wp-pipeline && docker-compose down'
       }
     }
     stage('Remove existing images') {
@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Start services') {
       steps {
-        sh 'cd /var/lib/jenkins/workspace/wpfree && docker-compose up -d'
+        sh 'cd /var/lib/jenkins/workspace/wp-pipeline && docker-compose up -d'
       }
     }
   }
