@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  my-mysql:
+    image: my-mysql
+    volumes:
+      - /var/mysql/data:/var/lib/mysql
+      - /mysql/db-initdb.sql:/docker-entrypoint-initdb.d/db-initdb.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: kiran
+      MYSQL_DATABASE: wp_mydb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: kiran
+
+  my-wordpress:
+    depends_on:
+      - my-mysql
+      - phpmyadmin
+    image: my-wordpress
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /var/mysite:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: my-mysql:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: kiran
+      WORDPRESS_DB_NAME: wp_mydb
+
+  phpmyadmin:
+    depends_on:
+      - my-mysql
+    image: phpmyadmin/phpmyadmin:5.1.1
+    restart: always
+    environment:
+      PMA_HOST: my-mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: kiran
+      MYSQL_ROOT_PASSWORD: kiran
+    networks:
+      - wp-network
+    ports:
+      - 8080:80
