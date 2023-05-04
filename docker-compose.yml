@@ -5,7 +5,7 @@ services:
     image: my-mysql
     volumes:
       - /var/mysql/data:/var/lib/mysql
-      - /mysql/db-initdb.sql:/docker-entrypoint-initdb.d/db-initdb.sql
+      - /var/mysql/db-initdb.sql:/docker-entrypoint-initdb.d/db-initdb.sql
     environment:
       MYSQL_ROOT_PASSWORD: kiran
       MYSQL_DATABASE: wp_mydb
