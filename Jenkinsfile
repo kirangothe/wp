@@ -4,7 +4,7 @@ pipeline {
     stage('Stop and remove containers') {
       steps {
         sh 'cd /var/lib/jenkins/workspace/wp-pipeline && docker-compose down'
-        sh 'docker stop $(docker ps -aq)'
+      //  sh 'docker stop $(docker ps -aq)'
         sh 'docker container prune -a -f'
       }
     }
