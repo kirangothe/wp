@@ -11,3 +11,5 @@ ENV WORDPRESS_DB_NAME wp_mydb
 
 # Mount the WordPress data volume
 VOLUME /var/www/html
+
+EXPOSE 80

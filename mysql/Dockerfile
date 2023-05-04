@@ -23,3 +23,5 @@ COPY my-wpdb.sql /docker-entrypoint-initdb.d/
 # Mount the data volume
 VOLUME /var/lib/mysql-data
 
+EXPOSE 3306
+
