@@ -42,4 +42,4 @@ services:
       MYSQL_PASSWORD: kiran
       MYSQL_ROOT_PASSWORD: kiran 
     ports:
-      - 8080:80
+      - 8081:80
