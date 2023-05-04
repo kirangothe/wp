@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'cd /var/lib/jenkins/workspace/wp-pipeline && docker-compose down'
         sh 'docker stop $(sudo docker ps -aq)'
-        sh 'docker container prune'
+        sh 'docker container prune -af'
       }
     }
     stage('Remove existing images') {
