@@ -10,8 +10,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: kiran
       MYSQL_DATABASE: wp_mydb
-      MYSQL_USER: root
-      MYSQL_PASSWORD: kiran
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: kiran
 
   my-wordpress:
     depends_on:
