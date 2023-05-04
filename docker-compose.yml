@@ -2,6 +2,7 @@ version: '3'
 
 services:
   my-mysql:
+    container_name: my-mysql
     image: my-mysql
     volumes:
       - /var/mysql/data:/var/lib/mysql
@@ -17,6 +18,7 @@ services:
       - my-mysql
       - phpmyadmin
     image: my-wordpress
+    container_name: my-wordpress
     restart: always
     ports:
       - "80:80"
@@ -32,6 +34,7 @@ services:
     depends_on:
       - my-mysql
     image: phpmyadmin/phpmyadmin:5.1.1
+    container_name: my-phpmyadmin
     restart: always
     environment:
       PMA_HOST: my-mysql
