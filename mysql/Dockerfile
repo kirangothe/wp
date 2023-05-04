@@ -1,4 +1,4 @@
-FROM mysql:5.7.31
+FROM mysql:latest
 
 # Create a directory for the data volume
 RUN mkdir /var/lib/mysql-data
