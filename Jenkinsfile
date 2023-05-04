@@ -1,10 +1,24 @@
 pipeline {
   agent any
-
   stages {
-    stage('Github Checkout repository') {
+    stage('Stop and remove containers') {
       steps {
-        git 'https://github.com/kirangothe/wp.git'
+        sh 'cd /var/lib/jenkins/workspace/wpfree && docker-compose down'
+      }
+    }
+    stage('Remove existing images') {
+      steps {
+        sh 'docker image prune -af'
+      }
+    }
+    stage('Build Docker images') {
+      steps {
+        sh 'docker-compose build'
+      }
+    }
+    stage('Start services') {
+      steps {
+        sh 'cd /var/lib/jenkins/workspace/wpfree && docker-compose up -d'
       }
     }
   }
