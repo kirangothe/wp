@@ -4,6 +4,7 @@ services:
   my-mysql:
     container_name: my-mysql
     image: my-mysql
+    restart: always
     volumes:
       - /var/mysql/data:/var/lib/mysql
      # - /var/mysql/db-initdb.sql:/docker-entrypoint-initdb.d/db-initdb.sql:ro
